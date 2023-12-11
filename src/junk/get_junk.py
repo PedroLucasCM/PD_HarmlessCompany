@@ -1,15 +1,15 @@
 import json
 import random
-from src.junk.junk import Junk
+from junk.junk import Junk
 
 def junk_list():
-    with open("./junk.json", "r+") as a:
+    with open("./junk/junk.json", "r+") as a:
         items = json.load(a)
 
     random_num = random.randint(1, len(items)) # quantidade x random
 
     # Selecionar aleatoriamente essa quantidade x de itens
-    random_items= random.sample(items, random_num)
+    random_items= random.choices(items, k=random_num)
 
     junk_items = []
     for item in random_items:

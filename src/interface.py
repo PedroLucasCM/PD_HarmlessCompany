@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
-from src.junk.read_junk import junk_list
+from junk.get_junk import junk_list
 
 
 class InterfaceGrafica:
@@ -20,7 +20,7 @@ class InterfaceGrafica:
 
 
     def add_to_backpack(self, item):
-        if self.total_weight + item.weight <= self.self.MAX_WEIGHT:
+        if self.total_weight + item.weight <= self.MAX_WEIGHT:
             self.total_weight += item.weight
             self.total_backpack += item.value
             self.backpack_contents.insert(tk.END, str(item))  
@@ -46,7 +46,7 @@ class InterfaceGrafica:
         self.weight_label.config(text=f"Total Weight: {self.total_weight}Kg / {self.MAX_WEIGHT}Kg")
 
     def update_value_label(self):
-        self.self.value_label.config(text=f"Total Value in Backpack: ${self.total_backpack}")
+        self.value_label.config(text=f"Total Value in Backpack: ${self.total_backpack}")
 
     def calculate_total_value(self, items):
         return sum(item.value for item in items)
