@@ -47,7 +47,7 @@ class InterfaceGrafica:
 
         if self.total_weight + item.weight <= self.MAX_WEIGHT and \
             self.used_slots + slots_needed <= self.MAX_SLOTS:
-
+            
             self.total_weight += item.weight
             self.total_backpack += item.value
             self.backpack_contents.insert(tk.END, str(item))
@@ -61,7 +61,7 @@ class InterfaceGrafica:
             self.tree.item(selected_id, tags='disabled')
             self.backpack_item_ids[item] = selected_id
             self.tree.tag_configure('disabled', foreground='gray') 
-
+        else:
             messagebox.showwarning("Warning", "Backpack is full or item is too heavy!")
         
     def remove_item(self):
