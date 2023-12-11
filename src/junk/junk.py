@@ -12,4 +12,4 @@ class Junk:
         self.weight = weight
 
     def __str__(self) -> str:
-        return f"Scrap: {self.name:20} - ${self.value} - {self.weight}Kg"
+        return f"{self.name:20} - ${self.value} - {self.weight}Kg"
