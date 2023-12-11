@@ -23,8 +23,8 @@ class InterfaceGrafica:
         if self.total_weight + item.weight <= self.self.MAX_WEIGHT:
             self.total_weight += item.weight
             self.total_backpack += item.value
-            self.backpack_contents.insert(tk.END, str(item))  # Insert a string representation
-            self.backpack_items.append(item)  # Keep track of the Junk object
+            self.backpack_contents.insert(tk.END, str(item))  
+            self.backpack_items.append(item)  
             self.update_weight_label()
             self.update_value_label()
         else:
@@ -33,7 +33,7 @@ class InterfaceGrafica:
     def remove_from_backpack(self, ):
         try:
             selected_index = self.backpack_contents.curselection()[0]
-            item = self.backpack_items.pop(selected_index)  # Remove the Junk object
+            item = self.backpack_items.pop(selected_index)  
             self.backpack_contents.delete(selected_index)
             self.total_weight -= item.weight
             self.total_backpack -= item.value
@@ -52,35 +52,26 @@ class InterfaceGrafica:
         return sum(item.value for item in items)
 
     def create_widgets(self):
-
-        # Listbox for junk items
         self.junk_listbox.pack(pady=10)
 
-        # Add items to the listbox
         for item in self.junk_items:
-            self.junk_listbox.insert(tk.END, str(item))  # Insert a string representation
+            self.junk_listbox.insert(tk.END, str(item))
 
-        # Button to add item to backpack
         add_button = tk.Button(self.root, text="Add to Backpack", command=lambda: self.add_to_backpack(self.junk_items[self.junk_listbox.curselection()[0]]))
         add_button.pack(pady=5)
 
-        # Button to remove item from backpack
         remove_button = tk.Button(self.root, text="Remove from Backpack", command=self.remove_from_backpack)
         remove_button.pack(pady=5)
 
-        # Label for total weight
         self.total_weight = 0
         self.weight_label = tk.Label(self.root, text=f"Total Weight: {self.total_weight}Kg / {self.MAX_WEIGHT}Kg")
         self.weight_label.pack(pady=5)
 
-        # Label for total value in backpack
         self.total_backpack = 0
         self.value_label = tk.Label(self.root, text=f"Total Value in Backpack: ${self.total_backpack}")
         self.value_label.pack(pady=5)
 
-        # Label for total value of all items
         total_value_label = tk.Label(self.root, text=f"Total Value of All Items: ${self.calculate_total_value(self.junk_items)}")
         total_value_label.pack(pady=5)
 
-        # Listbox for backpack contents
         self.backpack_contents.pack(pady=10)
