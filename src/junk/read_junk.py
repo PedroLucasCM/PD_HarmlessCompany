@@ -1,6 +1,6 @@
 import json
 import random
-from junk import Junk
+from src.junk.junk import Junk
 
 def junk_list():
     with open("./junk.json", "r+") as a:

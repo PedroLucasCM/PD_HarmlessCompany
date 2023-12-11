@@ -12,7 +12,4 @@ class Junk:
         self.weight = weight
 
     def __str__(self) -> str:
-        if(len(self.name) >10):
-            return f"Scrap: {self.name} - \t${self.value}\t - \t{self.weight}Kg"
-        else:
-            return f"Scrap: {self.name}\t - \t${self.value}\t - \t{self.weight}Kg"
+        return f"Scrap: {self.name:20} - ${self.value} - {self.weight}Kg"
